@@ -79,10 +79,15 @@ return [
             'label' => 'Use for Indikator News & Newsletter?',
             'comment' => 'Use Wysiwyg editor in Indikator Content News & Newsletter as news editor'
         ],
+        'templates' => [
+            'label' => 'Edit Templates',
+            'comment' => 'Edit templates'
+        ],
         'tab' => [
             'settings' => 'Settings',
             'content' => 'Content',
-            'section' => 'Plugins'
+            'section' => 'Plugins',
+            'templates' => 'Templates'
         ]
     ]
 ];

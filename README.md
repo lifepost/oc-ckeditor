@@ -38,7 +38,7 @@ Wysiwyg editors by
 
 ###Documentation
 ####Installation
-To install this plugin you have to click on __add to project__ or type __AnandPatel.WysiwygEditors__ in Backend *System > Updates > Install Plugin*
+To install this plugin you have to click on __add to project__ or type __Teb.WysiwygEditors__ in Backend *System > Updates > Install Plugin*
 
 ####Configuration
 To configure this plugin go to backend *Settings* then find *CMS* in left side bar, then click on *Wysiwyg Editors*, you will get configuration options (refer to screenshots).

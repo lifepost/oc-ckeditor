@@ -1,4 +1,4 @@
-<?php namespace AnandPatel\WysiwygEditors;
+<?php namespace Teb\WysiwygEditors;
 
 use System\Classes\PluginBase;
 use System\Classes\PluginManager;
@@ -8,26 +8,26 @@ use App;
 use Backend;
 use Event;
 use Illuminate\Foundation\AliasLoader;
-use AnandPatel\WysiwygEditors\Models\Settings;
+use Teb\WysiwygEditors\Models\Settings;
 
 class Plugin extends PluginBase
 {
     public function pluginDetails()
     {
         return [
-            'name'        => 'anandpatel.wysiwygeditors::lang.plugin.name',
-            'description' => 'anandpatel.wysiwygeditors::lang.plugin.description',
-            'author'      => 'Anand Patel',
+            'name'        => 'teb.wysiwygeditors::lang.plugin.name',
+            'description' => 'teb.wysiwygeditors::lang.plugin.description',
+            'author'      => 'jsy',
             'icon'        => 'icon-pencil-square-o',
-            'homepage'    => 'https://github.com/anand-patel/oc-wysiwyg-editors'
+            'homepage'    => 'teb'
         ];
     }
 
     public function registerFormWidgets()
     {
         return [
-            'AnandPatel\WysiwygEditors\FormWidgets\Wysiwyg' => [
-                'label' => 'anandpatel.wysiwygeditors::lang.widget.label',
+            'Teb\WysiwygEditors\FormWidgets\Wysiwyg' => [
+                'label' => 'teb.wysiwygeditors::lang.widget.label',
                 'alias' => 'wysiwyg'
             ]
         ];
@@ -37,10 +37,10 @@ class Plugin extends PluginBase
     {
         return [
             'settings' => [
-                'label'       => 'anandpatel.wysiwygeditors::lang.settings.label',
-                'description' => 'anandpatel.wysiwygeditors::lang.settings.description',
+                'label'       => 'teb.wysiwygeditors::lang.settings.label',
+                'description' => 'teb.wysiwygeditors::lang.settings.description',
                 'icon'        => 'icon-pencil-square-o',
-                'class'       => 'AnandPatel\WysiwygEditors\Models\Settings',
+                'class'       => 'Teb\WysiwygEditors\Models\Settings',
                 'category'    => SettingsManager::CATEGORY_CMS
             ]
         ];
@@ -53,7 +53,7 @@ class Plugin extends PluginBase
             /*
              * Check for the installed plugin if install then extends fields for that.
              */
-            if ($form->model instanceof \AnandPatel\WysiwygEditors\Models\Settings) {
+            if ($form->model instanceof \Teb\WysiwygEditors\Models\Settings) {
                 if (!($theme = Theme::getEditTheme())) {
                     throw new ApplicationException(Lang::get('cms::lang.theme.edit.not_found'));
                 }
@@ -61,12 +61,12 @@ class Plugin extends PluginBase
                 if (PluginManager::instance()->hasPlugin('RainLab.Pages')) {
                     $form->addFields([
                         'static_page_as_wysiwyg' => [
-                            'label'   => 'anandpatel.wysiwygeditors::lang.form.spages.label',
+                            'label'   => 'teb.wysiwygeditors::lang.form.spages.label',
                             'type'    => 'switch',
                             'span'    => 'auto',
                             'default' => 'false',
-                            'comment' => 'anandpatel.wysiwygeditors::lang.form.spages.comment',
-                            'tab'     => 'anandpatel.wysiwygeditors::lang.form.tab.content'
+                            'comment' => 'teb.wysiwygeditors::lang.form.spages.comment',
+                            'tab'     => 'teb.wysiwygeditors::lang.form.tab.content'
                         ]
                     ], 'primary');
                 }
@@ -74,12 +74,12 @@ class Plugin extends PluginBase
                 if (PluginManager::instance()->hasPlugin('RainLab.Blog')) {
                     $form->addFields([
                         'blog_as_wysiwyg' => [
-                            'label'   => 'anandpatel.wysiwygeditors::lang.form.blog.label',
+                            'label'   => 'teb.wysiwygeditors::lang.form.blog.label',
                             'type'    => 'switch',
                             'span'    => 'auto',
                             'default' => 'false',
-                            'comment' => 'anandpatel.wysiwygeditors::lang.form.blog.comment',
-                            'tab'     => 'anandpatel.wysiwygeditors::lang.form.tab.content'
+                            'comment' => 'teb.wysiwygeditors::lang.form.blog.comment',
+                            'tab'     => 'teb.wysiwygeditors::lang.form.tab.content'
                         ]
                     ], 'primary');
                 }
@@ -87,12 +87,12 @@ class Plugin extends PluginBase
                 if (PluginManager::instance()->hasPlugin('Radiantweb.Problog')) {
                     $form->addFields([
                         'radiant_problog_as_wysiwyg' => [
-                            'label'   => 'anandpatel.wysiwygeditors::lang.form.problog.label',
+                            'label'   => 'teb.wysiwygeditors::lang.form.problog.label',
                             'type'    => 'switch',
                             'span'    => 'auto',
                             'default' => 'false',
-                            'comment' => 'anandpatel.wysiwygeditors::lang.form.problog.comment',
-                            'tab'     => 'anandpatel.wysiwygeditors::lang.form.tab.content'
+                            'comment' => 'teb.wysiwygeditors::lang.form.problog.comment',
+                            'tab'     => 'teb.wysiwygeditors::lang.form.tab.content'
                         ]
                     ], 'primary');
                 }
@@ -100,12 +100,12 @@ class Plugin extends PluginBase
                 if (PluginManager::instance()->hasPlugin('Radiantweb.Proevents')) {
                     $form->addFields([
                         'radiant_proevents_as_wysiwyg' => [
-                            'label'   => 'anandpatel.wysiwygeditors::lang.form.proevent.label',
+                            'label'   => 'teb.wysiwygeditors::lang.form.proevent.label',
                             'type'    => 'switch',
                             'span'    => 'auto',
                             'default' => 'false',
-                            'comment' => 'anandpatel.wysiwygeditors::lang.form.proevent.comment',
-                            'tab'     => 'anandpatel.wysiwygeditors::lang.form.tab.content'
+                            'comment' => 'teb.wysiwygeditors::lang.form.proevent.comment',
+                            'tab'     => 'teb.wysiwygeditors::lang.form.tab.content'
                         ]
                     ], 'primary');
                 }
@@ -113,12 +113,12 @@ class Plugin extends PluginBase
                 if (PluginManager::instance()->hasPlugin('Autumn.Pages')) {
                     $form->addFields([
                         'autumn_page_as_wysiwyg' => [
-                            'label'   => 'anandpatel.wysiwygeditors::lang.form.apages.label',
+                            'label'   => 'teb.wysiwygeditors::lang.form.apages.label',
                             'type'    => 'switch',
                             'span'    => 'auto',
                             'default' => 'false',
-                            'comment' => 'anandpatel.wysiwygeditors::lang.form.apages.comment',
-                            'tab'     => 'anandpatel.wysiwygeditors::lang.form.tab.content'
+                            'comment' => 'teb.wysiwygeditors::lang.form.apages.comment',
+                            'tab'     => 'teb.wysiwygeditors::lang.form.tab.content'
                         ]
                     ], 'primary');
                 }
@@ -126,12 +126,12 @@ class Plugin extends PluginBase
                 if (PluginManager::instance()->hasPlugin('Indikator.Content')) {
                     $form->addFields([
                         'content_plus_as_wysiwyg' => [
-                            'label'   => 'anandpatel.wysiwygeditors::lang.form.cplus.label',
+                            'label'   => 'teb.wysiwygeditors::lang.form.cplus.label',
                             'type'    => 'switch',
                             'span'    => 'auto',
                             'default' => 'false',
-                            'comment' => 'anandpatel.wysiwygeditors::lang.form.cplus.comment',
-                            'tab'     => 'anandpatel.wysiwygeditors::lang.form.tab.content'
+                            'comment' => 'teb.wysiwygeditors::lang.form.cplus.comment',
+                            'tab'     => 'teb.wysiwygeditors::lang.form.tab.content'
                         ]
                     ], 'primary');
                 }
@@ -139,12 +139,12 @@ class Plugin extends PluginBase
                 if (PluginManager::instance()->hasPlugin('Indikator.News')) {
                     $form->addFields([
                         'news_as_wysiwyg' => [
-                            'label'   => 'anandpatel.wysiwygeditors::lang.form.news.label',
+                            'label'   => 'teb.wysiwygeditors::lang.form.news.label',
                             'type'    => 'switch',
                             'span'    => 'auto',
                             'default' => 'false',
-                            'comment' => 'anandpatel.wysiwygeditors::lang.form.news.comment',
-                            'tab'     => 'anandpatel.wysiwygeditors::lang.form.tab.content'
+                            'comment' => 'teb.wysiwygeditors::lang.form.news.comment',
+                            'tab'     => 'teb.wysiwygeditors::lang.form.tab.content'
                         ]
                     ], 'primary');
                 }
@@ -215,7 +215,7 @@ class Plugin extends PluginBase
                         $field->config['type'] = $field->config['widget'] = 'richeditor';
                     }
                     else {
-                        $field->config['type'] = $field->config['widget'] = 'AnandPatel\WysiwygEditors\FormWidgets\Editor';
+                        $field->config['type'] = $field->config['widget'] = 'Teb\WysiwygEditors\FormWidgets\Editor';
                     }
 
                     return;

@@ -13,9 +13,9 @@
         }
         
         if (typeof CKEDITOR === 'undefined') {
-            $.getScript('<?php echo url('/plugins/anandpatel/wysiwygeditors/formwidgets/editor/assets/ckeditor/ckeditor.js'); ?>', function() {
-            $.getScript('<?php echo url('/plugins/anandpatel/wysiwygeditors/formwidgets/editor/assets/ckeditor/adapters/jquery.js'); ?>', function() {
-            $.getScript('<?php echo url('/plugins/anandpatel/wysiwygeditors/formwidgets/editor/assets/ckeditor/lang/'.$lang.'.js'); ?>', function() {
+            $.getScript('<?php echo url('/plugins/teb/wysiwygeditors/formwidgets/editor/assets/ckeditor/ckeditor.js'); ?>', function() {
+            $.getScript('<?php echo url('/plugins/teb/wysiwygeditors/formwidgets/editor/assets/ckeditor/adapters/jquery.js'); ?>', function() {
+            $.getScript('<?php echo url('/plugins/teb/wysiwygeditors/formwidgets/editor/assets/ckeditor/lang/'.$lang.'.js'); ?>', function() {
                 ckeditorInit();
             }); }); });
         }
